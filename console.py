@@ -24,12 +24,11 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, arg):
         """When one types in quit, exit"""
-        exit()
+        return True
 
     def do_EOF(self, arg):
         """EOF exit"""
-        print("")
-        exit()
+        return True
 
     def do_create(self, arg):
         """New instance creation"""
