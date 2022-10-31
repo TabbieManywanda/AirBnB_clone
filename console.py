@@ -28,6 +28,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, arg):
         """EOF exit"""
+        print("")
         exit()
 
     def do_create(self, arg):
