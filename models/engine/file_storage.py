@@ -43,4 +43,4 @@ class FileStorage:
             with open(FileStorage.__file_path, "r", encoding="utf-8") as fname:
                 l_json = json.load(fname)
                 for key, val in l_json.items():
-                    ForStorage.__objects[key] = eval(val["__class__"])(**val)
+                    FileStorage.__objects[key] = eval(val["__class__"])(**val)
