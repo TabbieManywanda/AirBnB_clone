@@ -31,6 +31,10 @@ class HBNBCommand(cmd.Cmd):
         print("")
         exit()
 
+    def emptyline(self):
+        """When line is empty"""
+        pass
+
     def do_create(self, arg):
         """New instance creation"""
         if len(arg) == 0:
@@ -65,19 +69,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** instance id missing **")
 
-    def do_all(self, arg):
-        """Display all insatnces"""
-        if len(arg) == 0:
-            print([str(a) for a in storage.all().values()])
-        elif arg not in self.classes:
-            print("** class doesn't exist **")
-        else:
-            print([str(a) for b, a in storage.all().items() if arg in b])
-
-    def emptyline(self):
-        """When line is empty"""
-        pass
-
     def do_destroy(self, arg):
         """Delete instance"""
         if len(arg) == 0:
@@ -100,6 +91,15 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** no instance found **")
                 return
+
+    def do_all(self, arg):
+        """Display all insatnces"""
+        if len(arg) == 0:
+            print([str(a) for a in storage.all().values()])
+        elif arg not in self.classes:
+            print("** class doesn't exist **")
+        else:
+            print([str(a) for b, a in storage.all().items() if arg in b])
 
     def do_update(self, arg):
         """JSON file"""
