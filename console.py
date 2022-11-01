@@ -92,7 +92,7 @@ class HBNBCommand(cmd.Cmd):
                 print('** no instance found **')
                 return
 
-    def all(self, arg):
+    def do_all(self, arg):
         """Display all insatnces"""
         if len(arg) == 0:
             print([str(a) for a in storage.all().values()])
