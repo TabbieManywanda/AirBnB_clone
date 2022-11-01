@@ -24,11 +24,12 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, arg):
         """When one types in quit, exit"""
-        return True
+        exit()
 
     def do_EOF(self, arg):
         """EOF exit"""
-        return True
+        print("")
+        exit()
 
     def do_create(self, arg):
         """New instance creation"""
@@ -119,8 +120,10 @@ class HBNBCommand(cmd.Cmd):
                     if len(arg) == 3:
                         print("** value missing **")
                     else:
-                        setattr(storage.all()[key],
-                                arg[2], arg[3][1:-1])
+                        setattr(
+                                storage.all()[key],
+                                arg[2],
+                                arg[3][1:-1])
                         storage.all()[key].save()
                 else:
                     print("** attribute name missing **")
